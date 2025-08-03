@@ -17,6 +17,41 @@ const routes: Array<RouteRecordRaw> = [
         path: 'logs',
         name: 'OperationLogs',
         component: OperationLogs
+      },
+      {
+        path: 'route-manager',
+        name: 'RouteTableManager',
+        component: () => import('../views/RouteTableManager.vue')
+      },
+      {
+        path: 'route-table/:id',
+        name: 'RouteTableDetail',
+        component: () => import('../views/RouteTableDetail.vue')
+      },
+      {
+        path: 'route-migration/:id',
+        name: 'RouteMigration',
+        component: () => import('../views/RouteMigration.vue')
+      },
+      {
+        path: 'migration-sessions',
+        name: 'MigrationSessions',
+        component: () => import('../views/MigrationSessions.vue')
+      },
+      {
+        path: 'test-route-api',
+        name: 'TestRouteApi',
+        component: () => import('../views/TestRouteApi.vue')
+      },
+      {
+        path: 'simple-route-test',
+        name: 'SimpleRouteTest',
+        component: () => import('../views/SimpleRouteTest.vue')
+      },
+      {
+        path: 'test-module-filter',
+        name: 'TestModuleFilter',
+        component: () => import('../views/TestModuleFilter.vue')
       }
     ]
   }

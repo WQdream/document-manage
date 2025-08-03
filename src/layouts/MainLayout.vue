@@ -3,10 +3,11 @@
     <el-container>
       <el-header class="header">
         <div class="logo">场景科技前端文档</div>
-        <!-- <div class="nav-menu">
+        <div class="nav-menu">
           <router-link to="/" class="nav-item">组件文档</router-link>
+          <router-link to="/route-manager" class="nav-item">路由管理</router-link>
           <router-link to="/logs" class="nav-item">操作记录</router-link>
-        </div> -->
+        </div>
         <el-button
           class="edit-toggle-btn"
           :icon="showEditMenu ? Hide : View"
@@ -87,7 +88,7 @@ function toggleEditMenu() {
   transition: background-color 0.3s;
 }
 
-.nav-item:hover, .router-link-active {
+.nav-item:hover, .router-link-exact-active {
   background-color: rgba(255, 255, 255, 0.1);
 }
 

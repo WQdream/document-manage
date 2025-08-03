@@ -268,8 +268,7 @@ const fetchMenuData = async () => {
   loading.value = true;
   try {
     const response = await categoryApi.getMenuStructure();
-    categories.value = response.data;
-    
+    categories.value = response;
     // 如果有组件，默认选中第一个组件
     if (categories.value.length > 0 && categories.value[0].components.length > 0) {
       activeComponent.value = categories.value[0].components[0].componentId;
@@ -374,7 +373,7 @@ const submitComponentForm = async () => {
         } else {
           // 获取组件ID
           const response = await componentApi.getComponentByComponentId(componentForm.componentId);
-          const componentId = response.data.id;
+          const componentId = response.id;
           
           await componentApi.updateComponent(componentId, {
             name: componentForm.name,
@@ -427,7 +426,7 @@ const deleteComponent = async (component: any) => {
     loading.value = true;
     // 获取组件ID
     const response = await componentApi.getComponentByComponentId(component.componentId);
-    const componentId = response.data.id;
+    const componentId = response.id;
     
     await componentApi.deleteComponent(componentId);
     ElMessage.success('删除组件成功');

@@ -192,8 +192,8 @@ const fetchLogs = async () => {
     }
 
     const response = await operationLogApi.getAllLogs(params);
-    logs.value = response.data.data;
-    total.value = response.data.total;
+    logs.value = response.data;
+    total.value = response.total;
   } catch (error) {
     console.error('获取操作日志失败:', error);
     ElMessage.error('获取操作日志失败');

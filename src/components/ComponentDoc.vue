@@ -106,7 +106,7 @@ const fetchComponentDoc = async (componentId: string) => {
   docFetchFailed.value = false;
   try {
     const response = await componentDocApi.getDocByComponentId(componentId);
-    docData.value = response.data;
+    docData.value = response;
     
     // 复制文档数据到可编辑对象
     if (docData.value) {
@@ -552,7 +552,7 @@ const exportMarkdown = async () => {
     }
     const response = await componentDocApi.exportMarkdown(String(docData.value.id));
     // 创建下载链接
-    const blob = new Blob([response.data], { type: 'text/markdown' });
+    const blob = new Blob([response], { type: 'text/markdown' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
