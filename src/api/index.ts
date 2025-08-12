@@ -2,7 +2,9 @@ import axios from 'axios';
 
 // 创建axios实例
 const api = axios.create({
-  baseURL: 'http://localhost:3001/api', // 后端API的基础URL
+  baseURL: import.meta.env.PROD 
+  ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}/api` // true生产环境API
+  : 'http://localhost:3001/api', // false开发环境API
   timeout: 10000, // 请求超时时间
   headers: {
     'Content-Type': 'application/json'
